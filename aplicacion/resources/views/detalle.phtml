@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <a href="<?php echo  htmlspecialchars($baseUrl); ?>">Regresar</a>
+        </div>
+        <table class="pure-table">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>Skills</th>
+            </tr>
+
+            <?php foreach ($empleados as $empleado): ?>
+            <tr>
+                <td><?php echo $empleado["name"] ?></td>
+                <td><?php echo $empleado["email"] ?></td>
+                <td><?php echo $empleado["phone"] ?></td>
+                <td><?php echo $empleado["address"] ?></td>
+                <td><?php echo $empleado["position"] ?></td>
+                <td><?php echo $empleado["salary"] ?></td>
+                <?php
+                $aux = array();
+                foreach ($empleado["skills"] as $value) {
+                    $aux[] = $value["skill"];
+                }
+                ?>
+                <td><?php echo implode(",",$aux) ?></td>
+            </tr>
+
+        <?php endforeach; ?>
+        </table>
+    </body>
+</html>
+

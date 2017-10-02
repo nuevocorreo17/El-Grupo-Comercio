@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <form method="post" action="buscar">
+                <input type="text" name="email" />
+                <input value="Buscar" type="submit" />
+            </form>
+        </div>
+        <table class="pure-table">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>Detalle</th>
+            </tr>
+
+        <?php foreach ($empleados as $empleado): ?>
+
+            <tr>
+                <td><?php echo $empleado["name"] ?></td>
+                <td><?php echo $empleado["email"] ?></td>
+                <td><?php echo $empleado["position"] ?></td>
+                <td><?php echo $empleado["salary"] ?></td>
+                <td><a href="detalle/<?php echo $empleado["id"] ?>">Detalle</a></td>
+            </tr>
+
+        <?php endforeach; ?>
+        </table>
+    </body>
+</html>
